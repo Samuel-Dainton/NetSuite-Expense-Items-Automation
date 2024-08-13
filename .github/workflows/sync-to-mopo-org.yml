@@ -15,7 +15,7 @@ jobs:
 
     - name: Push to organization repo
       run: |
-        git remote add company https://github.com/mobile-power/SuiteScript-Expense-Button
+        git remote add company https://github.com/mobile-power/SuiteScript-Expense-Button.git
         git push company main
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
