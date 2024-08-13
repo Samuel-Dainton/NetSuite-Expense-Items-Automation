@@ -1,0 +1,21 @@
+name: Sync to Organization Repo
+
+on:
+  push:
+    branches:
+      - main  # You can change this to the branch you want to trigger the action
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Push to organization repo
+      run: |
+        git remote add company https://github.com/mobile-power/SuiteScript-Expense-Button
+        git push company main
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
